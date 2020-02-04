@@ -13162,7 +13162,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[37]:</div>
+<div class="prompt input_prompt">In&nbsp;[39]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">bru</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span> <span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Opprinnelig F-Nr&#39;</span><span class="p">],</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span> <span class="p">)</span>
@@ -13170,7 +13170,8 @@ div#notebook {
 <span class="c1"># Med lokasjon får vi en rad per vegsegment i CSV-dump, dvs duplikate ID&#39;er. </span>
 <span class="n">bru</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">(</span> <span class="n">subset</span><span class="o">=</span><span class="s1">&#39;vegobjektid&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span> <span class="p">)</span>
 
-<span class="n">bru</span><span class="p">[</span> <span class="n">bru</span><span class="o">.</span><span class="n">duplicated</span><span class="p">(</span> <span class="p">[</span><span class="s1">&#39;Opprinnelig F-Nr&#39;</span><span class="p">,</span><span class="s1">&#39;Nummer&#39;</span><span class="p">],</span> <span class="n">keep</span><span class="o">=</span><span class="kc">False</span> <span class="p">)</span>  <span class="p">][[</span> <span class="s1">&#39;vegobjektid&#39;</span><span class="p">,</span> <span class="s1">&#39;Navn&#39;</span><span class="p">,</span> <span class="s1">&#39;Opprinnelig F-Nr&#39;</span><span class="p">,</span> <span class="s1">&#39;Nummer&#39;</span><span class="p">,</span> <span class="s1">&#39;vegreferanse&#39;</span><span class="p">,</span> <span class="s1">&#39;startdato&#39;</span><span class="p">,</span> <span class="s1">&#39;sistmodifisert&#39;</span> <span class="p">]]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">([</span><span class="s1">&#39;Opprinnelig F-Nr&#39;</span><span class="p">,</span> <span class="s1">&#39;Nummer&#39;</span> <span class="p">])</span> 
+<span class="n">duplikat</span> <span class="o">=</span> <span class="n">bru</span><span class="p">[</span> <span class="n">bru</span><span class="o">.</span><span class="n">duplicated</span><span class="p">(</span> <span class="p">[</span><span class="s1">&#39;Opprinnelig F-Nr&#39;</span><span class="p">,</span><span class="s1">&#39;Nummer&#39;</span><span class="p">],</span> <span class="n">keep</span><span class="o">=</span><span class="kc">False</span> <span class="p">)</span>  <span class="p">][[</span> <span class="s1">&#39;vegobjektid&#39;</span><span class="p">,</span> <span class="s1">&#39;Navn&#39;</span><span class="p">,</span> <span class="s1">&#39;Opprinnelig F-Nr&#39;</span><span class="p">,</span> <span class="s1">&#39;Nummer&#39;</span><span class="p">,</span> <span class="s1">&#39;vegreferanse&#39;</span><span class="p">,</span> <span class="s1">&#39;startdato&#39;</span><span class="p">,</span> <span class="s1">&#39;sistmodifisert&#39;</span> <span class="p">]]</span><span class="o">.</span><span class="n">sort_values</span><span class="p">([</span><span class="s1">&#39;Opprinnelig F-Nr&#39;</span><span class="p">,</span> <span class="s1">&#39;Nummer&#39;</span> <span class="p">])</span> 
+<span class="n">duplikat</span>
 </pre></div>
 
     </div>
@@ -13183,7 +13184,7 @@ div#notebook {
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[37]:</div>
+    <div class="prompt output_prompt">Out[39]:</div>
 
 
 
@@ -18923,6 +18924,19 @@ div#notebook {
 
 </div>
 
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[41]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">duplikat</span><span class="o">.</span><span class="n">to_excel</span><span class="p">(</span> <span class="s1">&#39;brutus_duplikater_NVDB.xlsx&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
 </div>
 </div>
 
